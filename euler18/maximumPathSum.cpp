@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+//Takes a pyramidal array and returns the maximum sum of elements along a path from top to bottom.
+//Uses basic dynamic programming.
 int main(int argc, char** argv){
 	int depth = atoi(argv[1]);
 	if ((depth*(depth + 1))/2 != argc - 2){

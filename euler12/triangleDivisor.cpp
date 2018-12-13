@@ -3,6 +3,12 @@
 #include <array>
 using namespace std;
 
+//Code to determine the first triangle number with over k distinct factors, for some given k.
+//The number of factors of PRODUCT over i of ((a_i)^(b_i)) is PRODUCT over i of (1+(b_i)).
+//This solution just uses this approach with brute force, but we can speed up our factorisation by noting that
+//the nth triangle number is n(n-1)/2, so we can just factorise n and n-1 instead, and combine their factors.
+//This means that, if the nth triangle number is the one we need, we only have to factorise the first n numbers.
+//The required test case was not sufficiently large to warrant the extra footling required to implement this though.
 int main(int argc, char** argv){
 	list<int> primes;
 	int counter = 0;

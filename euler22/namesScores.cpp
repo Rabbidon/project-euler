@@ -4,6 +4,7 @@
 #include <list>
 using namespace std;
 
+//Sums the scores of all names in te accompanhing file. The rules for scoring can be found at https://projecteuler.net/problem=22
 int main(){
 	ifstream inFile ("p022_names.txt");
 	string line = {};

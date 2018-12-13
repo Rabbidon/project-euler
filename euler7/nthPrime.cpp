@@ -2,6 +2,7 @@
 #include <cmath>
 using namespace std;
 
+//We generate the first n primes for some fixed n. We test primality via divisbility test of all primes generated thus far.
 int main(int argc, char** argv){
 	int number = atoi(argv[1]);
 	int primes [number];

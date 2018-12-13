@@ -2,6 +2,8 @@
 #include <map>
 using namespace std;
 
+//This algorithm sums the number of letters contained in the standard English representation of numbers below 1000.
+//Standard representation is e.g "nine hundred and twenty five".
 int main(int argc, char** argv){
 
 	map<int, int> letterMap;

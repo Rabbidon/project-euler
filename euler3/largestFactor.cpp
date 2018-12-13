@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+//Script that finds the largest prime factor of a number.
+//It does this by starting the base at 2 and progressively dividing by the smallest valid divisor until we are left with a prime.
+//This is necessarily the largest prime factor: in doing this we have represented our original number as a product of numbers
+//at most as large as our result.
+
 long long divide(long long number, long long base){
 	if ((number%base == 0) and (number!=base)){
 		return divide(number/base, base);

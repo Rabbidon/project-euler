@@ -2,6 +2,8 @@
 #include <map>
 using namespace std;
 
+
+//Program to find how many times the first of the month fell on a Sunday during (1900,2000].
 int main(){
 
 	int sundays = 0;
@@ -22,6 +24,7 @@ int main(){
 	monthMap[10] = 31;
 	monthMap[11] = 30;
 
+	//Loop that works out the first day of each month iteratively, using the previous first day and number of days in the current month.
 	for (int i = 1; i <= 1200; i++){
 		day = (day+monthMap[(i-1)%12])%7;
 		if ((i-1)%48 == 38){

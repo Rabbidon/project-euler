@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//This is just a brute-force calculation of square of sum minus sum of squares.
 int main(int argc, char** argv){
 	long number = atol(argv[1]);
 	long squareSum = 0;

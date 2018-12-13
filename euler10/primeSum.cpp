@@ -3,6 +3,8 @@
 #include <list>
 using namespace std;
 
+//Tests primality of every number below a certain bound by checking divisibility of each already discovered prime.
+//This could be improved but the number bound required to be tested (2 million) was so small that this ran really quickly.
 int main(int argc, char** argv){
 	long number = atol(argv[1]);
 	list<long> primes;
