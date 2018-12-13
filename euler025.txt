@@ -1,0 +1,21 @@
+Find the first member of the Fibonacci sequence to have over 1000 digits.
+
+This one seems impractical to solve by hand, but can be easily cracked using the closed form of the Fibonaci numbers.
+
+We can solve the Fibonacci numbers' recurrence relation
+
+F_n = F_(n-1) + F_(n-2)
+
+to get two general solutions, and then solve for boundary conditions (F_1 = 1, F_2 = 1), to give
+
+F_n = ((phi)^n-(1-phi)^n)/sqrt(5)
+
+where phi is the golden ratio. 1<phi<2, so phi^n grows large as n grows, and (1-phi)^n grows small.
+
+Therefore we see that F_n ~ phi^n/sqrt(5) for large n (by the time F_n is large enough to have 1000 digits, n is easily large enough for this approximation to be very, very close).
+
+We pick k s.t. (phi^k)/sqrt(5) = 10^999 (the least number with 1000 digits). Taking logs gives
+
+k = (999*log(10)+(log(5)/2))/log(phi) ~= 4781.85927075
+
+Therefore the first Fibonacci number to exceed 10^999 is 4782

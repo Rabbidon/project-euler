@@ -1,0 +1,8 @@
+Problem - sum all all numbers under 100 divisible by 3 or 5.
+
+This can be solved incredibly quickly without writing any code whatsoever:
+
+The sum of multiples of 3 less than 1000 is just 3*(sum of naturals less than 1000/3) = 3*333*334/2 = 166833. (via triangle number formula)
+Similarly, the sum of multiples of 5 is just 5*199*200/2 = 99500.
+Adding these together double-counts multiples of 15 under 1000. So we just subtract the sum of these (summing to 15*66*67/2 = 33165)
+to get a total of 166833 + 99500 - 33165 = 233168.

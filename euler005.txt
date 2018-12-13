@@ -1,0 +1,12 @@
+Find the least number divisible by all integers 1 through 20.
+
+We can solve this easily via the power of prime factorisation: b divides a iff the power of any prime in the prime factorisation of a is at least as great 
+as the power of that prime in the prime factorisation of b. Therefore the solution to our question is the product of
+
+(p_i)^(floor(log to base p_i(20)))
+
+where the p_i vary over primes under 20. This number is guaranteed to be a multiple of all numbers under 20 (since no number under 20 can contain
+a higher power of any of the p_i due to size limitations), and there is no smaller number with this property - we are unable to decrease any of the powers of these primes
+since (p_i)^(floor(log to base p_i(20))) < 20 for each prime p_i, and would no longer divide the product if we decreased the power of the corresponding p_i.
+
+In the case of 20 this product evaluates to (2^4)*(3^2)*5*7*11*13*17*19 = 232792560

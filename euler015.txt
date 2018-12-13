@@ -1,0 +1,7 @@
+Given a 20 * 20 grid, how many routes are there from the top left to the bottom right corner if we can only go right or down along an edge.
+
+Given the grid dimensions, we will have to go across 20 times and down 20 times. We can do these 40 actions in any order we like. There are
+(by definition) 40C20 (40 choose 20) ways to do this (out of the 40 consecutive moves, we can freely pick 20 to be rightwards. The remainder
+will all then be downwards, giving a valid path, and all valid paths are of this form).
+
+40C20 evaluates to 137846528820
