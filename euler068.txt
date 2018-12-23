@@ -1,0 +1,90 @@
+This problem is also straightforward, if a little tedious, to solve by hand - we are given a "magic 5-gon ring" as follows:
+
+
+              0     
+               .
+                .
+     0.....0.....0      0
+          .       .    .
+         .         .  .
+        0           0
+       .  .       .
+      .     .   .
+     0        0
+               .
+                .
+                 0
+
+The '0's are to be filled in with the numbers 1 through 10 in such a way that the total of numbers along each straight line is the same.
+Our task is to do this in the way giving the lexicogrphically highest concatenation of them, given that 10 is on the outer ring
+
+The first number in the concatenation is stated to be the lowest value in the outer ring.
+
+The greatest possible lowest outer ring value is at most 6 - this occurs iff the outer ring is exactly 10,9,8,7,6. We note that the line total is
+55 (sum of all numbers) plus the inner ring (double counted), all divided by 5. With this outer ring, the line total is necessarily (55 + (5+4+3+2+1))/5 = 14.
+
+Assuming that a solution exists for this outer ring, the other two values in the line containing 10 must be (1,3), and those in the lone containing 9 must be (1,4) or (2,3). In fact the second case is impossible since this forces 4,5 to be adjacent, giving either (4,1),(5,2) or (5,1),(4,2) as lines that must be completed by either 6,7, or 8 (first case fails since 14-4-1=9 which is already used, second one fails since both lines need 8 to complete them). This gives two partially filled in solutions that correspond to the first case:
+
+              10     
+               .
+                .
+     0.....0.....3      9
+          .       .    .
+         .         .  .
+        0           1
+       .  .       .
+      .     .   .
+     0        4
+               .
+                .
+                 0
+
+or 
+
+              10     
+               .
+                .
+     9.....3.....1      0
+          .       .    .
+         .         .  .
+        0           2
+       .  .       .
+      .     .   .
+     0        0
+               .
+                .
+                 0
+
+For the first solution, the bottom arm must have 8 at its tip(3,4 already taken so cannot be 7 or 6). The rest of the ring can be quickly filled in to get
+
+              10     
+               .
+                .
+     6.....5.....3      9
+          .       .    .
+         .         .  .
+        2           1
+       .  .       .
+      .     .   .
+     7        4
+               .
+                .
+                 8
+
+For the second solution, we make the same observation of the rightmost arm and get
+
+              10     
+               .
+                .
+     9.....4.....1      6
+          .       .    .
+         .         .  .
+        2           3
+       .  .       .
+      .     .   .
+     8        5
+               .
+                .
+                 7
+
+The first solution gives a lexicographically greater concatenation, so we are done - these two solutions are necessarily lexicographically greater than any  solution without a 6 on the outer ring.

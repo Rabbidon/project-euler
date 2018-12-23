@@ -1,0 +1,20 @@
+The problem is to find n<=1,000,000 s.t. n/phi(n) is greatest. This is very fast and elegant to do by hand.
+
+First we make the important observation that if k|n, gcd(a,n) = 1 iff gcd(a,k*n) = 1.
+
+This means that a<k*n is coprime to n iff a mod n is coprime to n. Since we can divide k*n into k distinct batches of all the residues mod n, we have
+
+k*n/phi(k*n) = n/phi(n)
+
+This means that we need only bother checking products of distinct primes, instead of all numbers under 1,000,000.
+
+Now, set n = product over i of(p_i), where the p_i are distinct primes. Chinese Remainder Theorem says that there exists a residue mod n satisfying any set of congruences mod p_i (one per p_i). By sizes, this residue is unique. Therefore we can pick congruences to each of the p_i independently, and there are 
+
+product over i of (p_i - 1)
+
+ways to do that s.t none of the congruences are zero. Therefore phi(n) = product over i of (p_i - 1), and
+
+n/phi(n) = product over i of (p_i/(p_i - 1)).
+
+p_i/(p_i-1)>1 always, and is larger for smaller p_i. This means that for any integer N, the product P of N distinct primes with the greatest value of 
+P/phi(P) is necessarily the product of the least N primes, and so in fact is the least possible P. The value of P also increases as N increases. Therefore we need only check the least product of N distinct primes for each N until that product exceeds 1,000,000. This occurs at N=8, so the number under 1,000,000 with the greatest value of n/phi(n) is the product of the first 7 primes, 2*3*5*7*11*13*17 = 510510.
