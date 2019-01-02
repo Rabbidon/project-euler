@@ -1,0 +1,20 @@
+Another problem easily solved by hand.
+
+In this problem, we are looking for fractions p/q > 3/7 s.t. 3/7 - p/q is small (with q < 1,000,000).
+
+We take common denominator, and our difference becomes (3*q-7*p)/(7*q). The numerator is necessarily at least 1, and the denominator is at most 7,000,000.
+
+First, we assume 3*q-7*p=1:
+
+We note that 3*q-7*p = 1 is a Diophantine equation with family of solutions
+
+p = 3*m + 2
+q = 7*m + 5
+
+for integers m.
+
+(working mod 3,7 tells us that these are in fact all integer solutions). From this, we see that the greatest p,q satisfying the Diophantine equation s.t.
+q<1,000,000 is for m = floor(999,995/7) = 142856, and this also gives the least value of 
+
+If 3*q-7*p>1, then (3*q-7*p)/(7*q)>1/(3500000), which is greater than the value we found above. Therefore the above solution gives the least value of
+(3*q-7*p)/(7*q) satisfying our conditions, giving p = 3*142856 + 2 = 428570.
