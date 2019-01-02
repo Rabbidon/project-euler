@@ -12,25 +12,27 @@ Created on Sat Dec 22 22:00:58 2018
 #and then use the multiplicativity of phi to quickly get  the totient function from this.
 
 #This took a shade over a minute to run. I may try writing an implementation in C++ to see if I can do better.
+#I now know from problem 72 that the most time-consuming thing here is the sorting.
  
 def main(n):
     minPhi = n+1
     solution = 0
     numGrid = [0 for i in range (n+1)]
     for i in range (2,len(numGrid)):
+        #Case where number is prime (entry is 0)
         if numGrid[i] == 0:
             numGrid[i] = i-1
             toEdit = 2*i
             while toEdit<n+1:
                 numGrid[toEdit] = i
                 toEdit += i
-            
+        #Case where number is not prime (entry is non-zero and guaranteed to be the largest prime that goes into the number)
         else:
-            phi = 1
-            toEdit = i
+            phi = numGrid[i]-1
+            toEdit = i//phi
             while (toEdit%numGrid[i] == 0):
                 toEdit //= numGrid[i]
-                phi *= numGrid[i]-1
+                phi *= numGrid[i];    
             if not (toEdit == 1):
                 phi *= numGrid[toEdit]
             numGrid[i] = phi
