@@ -21,10 +21,14 @@ def main(n):
     sumGrid = []
     sumGrid.append([])
     for i in range(1,n+1):
-        print(i)
+        #Initialise the empty arrays
         sumGrid.append([0 for j in range(i)])
         for j in range (1,i):
             for k in range(min(j,i-j)):
+                # The rule is we are only allowed to get new sums by adding new summands larger than any previous summand
+                # This is achieved here by first deciding what number we will add (i-j) and then seeing how many sums with
+                # summands all less than i-j sum to j. We then add i-j to these to get all possible sums with largest term i-j.
+                # Doing this for all j<i will give all sums totalling i.
                 sumGrid[i][i-j-1] += sumGrid[j][k]
         sumGrid[i][i-1] = 1
     return sum(sumGrid[n])-1
