@@ -1,0 +1,1 @@
+The input given here lends itself to a really simple solution via inspection. However, the general problem itself seems like quite a challenge, which I will probably look into later. Consider this a placeholder.
